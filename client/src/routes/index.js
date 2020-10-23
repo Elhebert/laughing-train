@@ -1,7 +1,5 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-// import Login from './Login'
-// import Dashboard from './Dashboard'
 import Loadable from 'react-loadable'
 import Loader from '../components/Loader'
 
