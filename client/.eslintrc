@@ -1,10 +1,11 @@
 {
   "parser": "babel-eslint",
-  "extends": ["prettier"],
+  "extends": ["react-app"],
   "env": {
     "browser": true,
     "jest": true
   },
+  "plugins": ["prettier"],
   "rules": {
     "max-len": ["error", {
       "code": 100
@@ -13,6 +14,7 @@
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],
     "no-return-assign": ["off"],
+    "prettier/prettier": "error",
     "eol-last": 1
   }
 }
