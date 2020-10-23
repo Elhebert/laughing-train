@@ -29,7 +29,7 @@ jobs:
         uses: a-b-r-o-w-n/eslint-action@v1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          working_directory: client
+          working-directory: client
 
   lint-server:
     name: Lint server code
@@ -50,7 +50,7 @@ jobs:
 
       - name: Install golint
         run: go get -u golang.org/x/lint/golint
-        working_directory: server
+        working-directory: server
 
       - name: Run linter
         uses: wearerequired/lint-action@v1
