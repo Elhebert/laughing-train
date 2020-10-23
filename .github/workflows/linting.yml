@@ -6,6 +6,8 @@ on:
 
 jobs:
   lint-client:
+    name: Lint client code
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: client
@@ -27,6 +29,8 @@ jobs:
 
 
   lint-server:
+    name: Lint server code
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: server
@@ -47,6 +51,8 @@ jobs:
           golint: true
 
   lint-markdown:
+    name: Lint markdown files
+    runs-on: ubuntu-latest
     steps:
       - name: Run linter
         uses: nosborn/github-action-markdown-cli@v1.1.1
