@@ -29,6 +29,7 @@ jobs:
         uses: a-b-r-o-w-n/eslint-action@v1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          files: "./src/**/*"
           working-directory: client
 
   lint-server:
@@ -57,4 +58,4 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           golint: true
-          golint_dir: server
+          golint_dir: server/
