@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: client
 
     steps:
@@ -22,21 +23,20 @@ jobs:
           node-version: 12
 
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm ci --no-audit --prefer-offline
 
       - name: Run linter
-        uses: wearerequired/lint-action@v1
+        uses: a-b-r-o-w-n/eslint-action@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          eslint: true
-          eslint_dir: client
-
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          working_directory: client
 
   lint-server:
     name: Lint server code
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: server
 
     steps:
@@ -48,8 +48,9 @@ jobs:
         with:
           go-version: 1
 
-      - name: Instal golint
+      - name: Install golint
         run: go get -u golang.org/x/lint/golint
+        working_directory: server
 
       - name: Run linter
         uses: wearerequired/lint-action@v1
@@ -57,13 +58,3 @@ jobs:
           github_token: ${{ secrets.github_token }}
           golint: true
           golint_dir: server
-
-  lint-markdown:
-    name: Lint markdown files
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run linter
-        uses: nosborn/github-action-markdown-cli@v1.1.1
-        with:
-          files: .
