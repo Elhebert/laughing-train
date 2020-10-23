@@ -11,7 +11,6 @@ COPY go.sum .
 
 COPY . .
 
-USER root
 ENTRYPOINT ["/bin/sh", "/app/docker-entrypoint.sh"]
 
 # run application
