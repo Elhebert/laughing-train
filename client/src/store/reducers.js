@@ -2,9 +2,7 @@
  * This file could later seperated and use combineReducers to combine all the sub-modules
  */
 
-const initialState = {
-
-}
+const initialState = {}
 
 function reducer(state = initialState, action) {
   switch (action.type) {
