@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const Loader = () => {
   return (
     <LoaderContainer>
-      <Spinner class="loadingio-spinner-ripple-eme8l9my2oh">
-        <div class="ldio-39yi2ugkh1m">
+      <Spinner className="loadingio-spinner-ripple-eme8l9my2oh">
+        <div className="ldio-39yi2ugkh1m">
           <div></div>
           <div></div>
         </div>
