@@ -29,6 +29,7 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           eslint: true
+          eslint_dir: client
 
 
   lint-server:
@@ -55,10 +56,12 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           golint: true
+          golint_dir: server
 
   lint-markdown:
     name: Lint markdown files
     runs-on: ubuntu-latest
+
     steps:
       - name: Run linter
         uses: nosborn/github-action-markdown-cli@v1.1.1
