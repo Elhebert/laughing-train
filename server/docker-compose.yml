@@ -1,0 +1,41 @@
+version: "3.4"
+
+services:
+  server:
+    image: lauging-train-server
+    build:
+      context: .
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    expose:
+      - 4000
+    networks:
+      - laughing-train-network
+      - db
+
+  db:
+    image: mysql:5.6
+    networks:
+      db:
+        aliases:
+          - laughing-train-db
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: laughing-train
+
+
+volumes:
+  db:
+
+networks:
+  db:
+  laughing-train-network:
+    external:
+      name: laughing-train-network  # name of the network
