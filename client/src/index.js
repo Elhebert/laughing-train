@@ -1,17 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import reducer from './store/reducers'
-import App from './components/App'
+import { createBrowserHistory } from 'history'
+import configureStore from './store'
+import App from './routes'
 import GlobalStyles from './styles/gloabal-styles'
 
-const store = createStore(reducer)
+const history = createBrowserHistory()
 
 render(
-  <Provider store={store}>
+  <Provider store={configureStore()}>
     <GlobalStyles />
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
